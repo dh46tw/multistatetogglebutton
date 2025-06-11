@@ -1,11 +1,16 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
-group = "com.github.dh46tw"
-version = "0.2.3"
+def groupConfig = "com.github.dh46tw"
+def versionConfig = "0.2.3"
 
 android {
     namespace 'org.honorato.multistatetogglebutton'
     compileSdk 34
+
+    archivesBaseName = 'multistatetogglebutton'
 
     defaultConfig {
         minSdk 21
@@ -13,13 +18,16 @@ android {
     }
 
     buildTypes {
+        release {
+            minifyEnabled false
+        }
     }
 
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
-            res.srcDirs  = ['res']
+            res.srcDirs = ['res']
         }
     }
 
@@ -27,8 +35,54 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.1'
 }
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = groupConfig
+            artifactId = 'multistatetogglebutton'
+            version = versionConfig
+
+            pom {
+                name = 'MultiStateToggleButton'
+                description = 'A multi-state toggle button for Android'
+                url = 'https://github.com/dh46tw/MultiStateToggleButton'
+                licenses {
+                    license {
+                        name = 'The MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'dh46tw'
+                        name = 'Daniel Huang'
+                        email = 'danielhuang.work@email.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/dh46tw/MultiStateToggleButton.git'
+                    developerConnection = 'scm:git:ssh://git@github.com/dh46tw/MultiStateToggleButton.git'
+                    url = 'https://github.com/dh46tw/MultiStateToggleButton'
+                }
+            }
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}
+
+
