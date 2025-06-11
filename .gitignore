@@ -19,7 +19,7 @@ build
 gradlew
 gradlew.bat
 # Gradle
-gradle.properties
+#gradle.properties
 
 # Maven
 target
