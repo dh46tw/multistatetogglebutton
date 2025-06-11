@@ -1,28 +1,38 @@
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MultiStateToggleButton-green.svg?style=true)](https://android-arsenal.com/details/1/2906)
+[![](https://jitpack.io/v/dh46tw/MultiStateToggleButton.svg)](https://jitpack.io/#dh46tw/MultiStateToggleButton)
 
 Multi State Toggle Button
 =========================
+
+This project is a forked version of [jlhonora/multistatetogglebutton](https://github.com/jlhonora/multistatetogglebutton).
 
 A simple multi-state toggle button for Android.
 
 ![Example](img/example1.png)
 
-## To-Do ##
+## Usage
 
-- Support Material Design's button shadow.
-- Implement basic testing
+### Add Jitpack repository in `settings.gradle (project-level)`
 
-Any help is appreciated :)
-
-## Usage ##
-
-```
-dependencies {
-    compile 'org.honorato.multistatetogglebutton:multistatetogglebutton:0.2.2'
+```gradle
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 
-Then in your activity's XML:
+### Add dependency to your `build.gradle (module-level)`
+
+```gradle
+dependencies {
+    implementation 'com.github.dh46tw:MultiStateToggleButton:{VERSION_NAME}'
+}
+```
+
+### Then in your activity's XML:
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
