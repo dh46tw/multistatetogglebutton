@@ -11,10 +11,6 @@ buildscript {
 
 allprojects {
     group = 'org.honorato'
-    repositories {
-        google()
-        mavenCentral()
-    }
 
     configurations.configureEach {
         resolutionStrategy.eachDependency { details ->

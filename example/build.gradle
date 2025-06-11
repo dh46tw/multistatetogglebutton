@@ -27,9 +27,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.7.1'
-//    implementation 'org.honorato.multistatetogglebutton:multistatetogglebutton:0.2.2'
+    implementation 'com.github.dh46tw:MultiStateToggleButton:v0.2.3'
 
     // Use this if you have a local copy of the repo, or if
     // you use your own fork
-    implementation project(':multistatetogglebutton')
+//    implementation project(':multistatetogglebutton')
 }
