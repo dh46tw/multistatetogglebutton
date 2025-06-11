@@ -1,9 +1,7 @@
 apply plugin: 'com.android.library'
 
-def mVersionCode = 10
-def mVersionName = "0.2.2"
-group = "org.honorato.multistatetogglebutton"
-version = mVersionName
+group = "com.github.dh46tw"
+version = "0.2.3"
 
 android {
     namespace 'org.honorato.multistatetogglebutton'
